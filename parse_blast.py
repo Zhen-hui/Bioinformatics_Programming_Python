@@ -1,8 +1,8 @@
-'''
+"""
 Created on Oct 19, 2018
 
 @author: zhentrinh
-'''
+"""
 
 '''
 This program read in a BLASTp file, which maps DNA against DNA, for example 
@@ -13,8 +13,8 @@ as a separate file.
 '''
 
 # Read in file 
-blastfile = open("scratch/RNASeq/blastp.outfmt6")
-all_lines = blastfile.readlines()
+blast_file = open("scratch/RNASeq/blastp.outfmt6")
+all_lines = blast_file.readlines()
 
 # Open file for writing
 output = open("Outputs/parsed_blast.txt", "w")
@@ -27,7 +27,7 @@ for line in all_lines:
     SwissProtID = element[5].split(".")[0] 
     pident = element[7] 
     # Print the 4 fields on tab-separated format to a file
-    output.write(transcriptID  + '\t' + isoform +  '\t' + SwissProtID +  '\t' + pident + '\n')
+    output.write(transcriptID + '\t' + isoform + '\t' + SwissProtID + '\t' + pident + '\n')
 
-blastfile.close()
+blast_file.close()
 output.close()
